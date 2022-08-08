@@ -17,12 +17,34 @@ h1 {
     border: 1px solid rgb(12, 108, 76);
     justify-content: center;
     align-content: center;
-    background-color: lightcoral;
+    background-color: lightblue;
 
 }
 
 .playingSquare {
     
-    border: 1px solid lightblue;
-    background-color: beige;
+    border: 1px solid lightseagreen;
+    background-color: rgba(255, 0, 0, 0);
+    justify-content: center;
+    align-content: center;
+
+}
+
+#XAndOImages{
+    display: none;
+
+}
+
+#gameRules {
+    text-align: center;
+
+}
+
+.placedCharacters{
+    display: inline;
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top: 5%;
+
 }
