@@ -1,0 +1,28 @@
+
+
+h1 {
+    color: rgb(12, 108, 76);
+    text-align: center;
+}
+
+#playingGrid {
+    height: 75vh;
+    width: 75vw;
+    display:grid;
+    margin: auto;
+    text-align: center;
+    grid-template-rows: repeat(3, 25%);
+    grid-template-columns: repeat(3, 25%);
+    gap: 1em 1em;
+    border: 1px solid rgb(12, 108, 76);
+    justify-content: center;
+    align-content: center;
+    background-color: lightcoral;
+
+}
+
+.playingSquare {
+    
+    border: 1px solid lightblue;
+    background-color: beige;
+}
