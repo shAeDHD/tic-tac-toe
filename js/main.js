@@ -1,11 +1,10 @@
 console.log('main.js connected')
+//              globalVariables
 let playerWithPriority = 'playerOne';
 let gameWinner = null;
 
-playerWithPriority
-
 //  function to alternate between players on square click.
-const switchPriority = function ( ) {
+const switchPriority = function ( ) {                   //              swithPriority 
 
     if ( playerWithPriority === 'playerTwo' ) {
 
@@ -17,11 +16,11 @@ const switchPriority = function ( ) {
     }    
 
 
-}; //       closes swithPriority
+};                                                      //       closes swithPriority
 
 //  object containing grid references for game board. 
-const gameBoard = { 
-    a1  : 'X',  
+const gameBoard = {                                     //              gameBoard
+    a1  : false,  
     a2  : false,
     a3  : false,
     b1  : false,
@@ -30,95 +29,93 @@ const gameBoard = {
     c1  : false,
     c2  : false,
     c3  : false,
-}; //       closes gameBoard
+};                                                      //       closes gameBoard
 
-console.log(Object.keys(gameBoard));
-console.log(Object.values(gameBoard));
-console.log(gameBoard.a1)
+//  array housing arrays containing win specifications.
+const winCondition = [                                  //              winCondition
 
-const gameBoardResultsAsArray = Object.values(gameBoard)
-console.log(gameBoardResultsAsArray);
- 
+    [ 'a1' , 'a2' , 'a3' ],
+    [ 'b1' , 'b2' , 'b3' ],
+    [ 'c1' , 'c2' , 'c3' ],
+    [ 'a1' , 'b1' , 'c1' ],
+    [ 'a2' , 'b2' , 'c2' ],
+    [ 'a3' , 'b3' , 'c3' ],
+    [ 'a1' , 'b2' , 'c3' ],
+    [ 'a3' , 'b2' , 'c1' ],
 
-// if all of a,b, or c have the same value, that player wins. 
-// if (  ) {
+];                                                      //       closes winCondition
 
-    if ( gameBoard.a1 === gameBoard.a2 && gameBoard.a3 === gameBoard.a1 && Object.values(`${gameBoard[0,1,2]}`) !== false) {
+//  function to checks if player with priority has won.
+const checkWin = function (  ) {                        //              checkWin
+    //      loop through winCondition array    
+    for (let i = 0 ; i < winCondition.length ; i++ ) {
+        //      store value of current loop iteration in new variable. 
+        const winConditionTriplet = winCondition[i]
+
+        //      saves each winConditionTriplet iteration as a variable
+        //      for comparative access to the gameBoard object.
+        const firstPos      = winConditionTriplet[0]
+        const secondPos     = winConditionTriplet[1]
+        const thirdPos      = winConditionTriplet[2]
+
+        //      checks if any of the winConditions are matched on the gameBoard.
+        if ( gameBoard[firstPos] === gameBoard[secondPos] && gameBoard[firstPos] === gameBoard[thirdPos] && gameBoard[firstPos] !== false ) { 
+
+            //      if a win condition is met, player with priority has won the game. 
+            gameWinner = playerWithPriority
+
+        //      loop through individual arrays within winCondition array
         
-        gameWinner = playerWithPriority
+        // for (let i = 0 ; i < 3 ; i++ ) {                //              for loop2
 
-    } else if ( gameBoard.b1 === gameBoard.b2 && gameBoard.b3 === gameBoard.b1 ) {
+        //     const winConditionSquare = winConditionTriplet[i]
+            
+        //     // console.log(gameBoard[winConditionSquare]);
 
-        gameWinner = playerWithPriority
+        // };                                              //       closes for loop2
+        } else if ( gameWinner === null && Object.values(gameBoard) !== false ) {
 
-    } else if ( gameBoard.c1 === gameBoard.c2 && gameBoard.c3 === gameBoard.b1 ) {
+            gameWinner = 'Tied Game!'
+            
+        } else {
 
-        gameWinner = playerWithPriority
+        }      
+    }; //   closes loop                                           
+    //      switch player priority.
+    switchPriority();
 
-    } else if ( gameBoard.a1 === gameBoard.b1 && gameBoard.c1 === gameBoard.b1 ) {
+};                                                      //       closes checkWin
 
-        gameWinner = playerWithPriority
-
-    } else if ( gameBoard.a2 === gameBoard.b2 && gameBoard.c2 === gameBoard.b1 ) {
-
-        gameWinner = playerWithPriority
-
-    } else if ( gameBoard.a3 === gameBoard.b3 && gameBoard.c3 === gameBoard.b1 ) {
-
-        gameWinner = playerWithPriority
-
-    } else if ( gameBoard.a1 && gameBoard.b2 === gameBoard.c3 && gameBoard.a1 ) {
-
-        gameWinner = playerWithPriority
-
-    } else if ( gameBoard.a3 && gameBoard.b2 === gameBoard.c1 && gameBoard.a1 ) {
-
-        gameWinner = playerWithPriority
-
-    } else {
-
-
-    }
-
-
-// } else {
-
-
-
-// }
-
-
-
-// if all of 1,2, or 3 have the same value, that player wins.
-// if a1, b2, c3 or a3, b2, c1 have the same value, that player wins. 
-
-// creates player's symbol/image to place into square
-const playerImageGenerator = function () {
+// creates player's symbol/image to place into square.
+const playerImageGenerator = function ( ) {             //              playerImageGenerator
 
     if ( playerWithPriority === 'playerOne' ) {
     
         const $XImage = $('<img src="images/plain X.png">')
         $XImage.addClass('placedCharacters') 
         console.log($XImage)
+
+
         return $XImage
-    
+        
     } else {
 
         const $OImage = $('<img src="images/plain O.png">');
         $OImage.addClass('placedCharacters');
 
+        
         console.log($OImage)
+
         return $OImage
 
     } 
     
     
 
-}; //       closes playerImageGenerator
-
+};                                                      //       closes playerImageGenerator
 
 // eventListener that activates when a grid square is clicked.
-$('.playingSquare').on('click', function (  ) {
+$('.playingSquare').on('click', function ( ) {          //              onSquareClick eventListener
     console.log(this);                 //      check = true
 
     // create new variable to house the #id of 'this'(*clicked*) playingSquare.
@@ -137,8 +134,8 @@ $('.playingSquare').on('click', function (  ) {
         gameBoard[id] = 'X';
         console.log(gameBoard); //    check = true
     
-        // switch player priority from playerOne to playerTwo.
-        switchPriority();
+        // checks for win condition - if no winner, switch player priority from playerOne to playerTwo.
+        checkWin();
         console.log(playerWithPriority); //     check = true
 
     } else if (gameBoard[id] === false && playerWithPriority === 'playerTwo'  ) {
@@ -154,8 +151,8 @@ $('.playingSquare').on('click', function (  ) {
         gameBoard[id] = 'O';
         console.log(gameBoard); //    check = true
     
-        // switch player priority from playerTwo to playerOne.
-        switchPriority();
+        // checks for win condition - if no winner, switch player priority from playerTwo to playerOne.
+        checkWin();
         console.log(playerWithPriority); //     check = true    
 
     } else {
@@ -166,6 +163,6 @@ $('.playingSquare').on('click', function (  ) {
     } //        closes if/else  
 
 
-}); //      closes .onSquareClick eventListener
+});                                                     //       closes onSquareClick eventListener
 
 
