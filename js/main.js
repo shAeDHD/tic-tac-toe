@@ -1,15 +1,18 @@
 console.log('main.js connected')
-let playerTurn = 'playerTwo';
+let playerWithPriority = 'playerOne';
+let gameWinner = null;
+
+playerWithPriority
 
 //  function to alternate between players on square click.
 const switchPriority = function ( ) {
 
-    if ( playerTurn === 'playerOne' ) {
+    if ( playerWithPriority === 'playerTwo' ) {
 
-        playerTurn = 'playerTwo'
+        playerWithPriority = 'playerOne'
 
     } else {
-        playerTurn = 'playerOne'
+        playerWithPriority = 'playerTwo'
 
     }    
 
@@ -18,7 +21,7 @@ const switchPriority = function ( ) {
 
 //  object containing grid references for game board. 
 const gameBoard = { 
-    a1  : false,  
+    a1  : 'X',  
     a2  : false,
     a3  : false,
     b1  : false,
@@ -29,51 +32,131 @@ const gameBoard = {
     c3  : false,
 }; //       closes gameBoard
 
+console.log(Object.keys(gameBoard));
+console.log(Object.values(gameBoard));
+console.log(gameBoard.a1)
+
+const gameBoardResultsAsArray = Object.values(gameBoard)
+console.log(gameBoardResultsAsArray);
+ 
+
+// if all of a,b, or c have the same value, that player wins. 
+// if (  ) {
+
+    if ( gameBoard.a1 === gameBoard.a2 && gameBoard.a3 === gameBoard.a1 && Object.values(`${gameBoard[0,1,2]}`) !== false) {
+        
+        gameWinner = playerWithPriority
+
+    } else if ( gameBoard.b1 === gameBoard.b2 && gameBoard.b3 === gameBoard.b1 ) {
+
+        gameWinner = playerWithPriority
+
+    } else if ( gameBoard.c1 === gameBoard.c2 && gameBoard.c3 === gameBoard.b1 ) {
+
+        gameWinner = playerWithPriority
+
+    } else if ( gameBoard.a1 === gameBoard.b1 && gameBoard.c1 === gameBoard.b1 ) {
+
+        gameWinner = playerWithPriority
+
+    } else if ( gameBoard.a2 === gameBoard.b2 && gameBoard.c2 === gameBoard.b1 ) {
+
+        gameWinner = playerWithPriority
+
+    } else if ( gameBoard.a3 === gameBoard.b3 && gameBoard.c3 === gameBoard.b1 ) {
+
+        gameWinner = playerWithPriority
+
+    } else if ( gameBoard.a1 && gameBoard.b2 === gameBoard.c3 && gameBoard.a1 ) {
+
+        gameWinner = playerWithPriority
+
+    } else if ( gameBoard.a3 && gameBoard.b2 === gameBoard.c1 && gameBoard.a1 ) {
+
+        gameWinner = playerWithPriority
+
+    } else {
+
+
+    }
+
+
+// } else {
 
 
 
+// }
 
-// eventListener that activates when a grid square is selected.
+
+
+// if all of 1,2, or 3 have the same value, that player wins.
+// if a1, b2, c3 or a3, b2, c1 have the same value, that player wins. 
+
+// creates player's symbol/image to place into square
+const playerImageGenerator = function () {
+
+    if ( playerWithPriority === 'playerOne' ) {
+    
+        const $XImage = $('<img src="images/plain X.png">')
+        $XImage.addClass('placedCharacters') 
+        console.log($XImage)
+        return $XImage
+    
+    } else {
+
+        const $OImage = $('<img src="images/plain O.png">');
+        $OImage.addClass('placedCharacters');
+
+        console.log($OImage)
+        return $OImage
+
+    } 
+    
+    
+
+}; //       closes playerImageGenerator
+
+
+// eventListener that activates when a grid square is clicked.
 $('.playingSquare').on('click', function (  ) {
-    // console.log('$a1 clicked');     //      check = true 
     console.log(this);                 //      check = true
 
-    //      create new variable to house the #id of 'this' playingSquare.
+    // create new variable to house the #id of 'this'(*clicked*) playingSquare.
     const id = $(this).attr('id');
 
-    if ( gameBoard[id] === false && playerTurn === 'playerOne' ) {
+    if ( gameBoard[id] === false && playerWithPriority === 'playerOne' ) {
+        
         // reset opacity of background color in all .playingSquare to 0. 
         $('.playingSquare').css("backgroundColor", "rgba(255, 0, 0, 0)")   
 
         // create newVariable of X image and then append to the current node.
-        const $XImage = $('<img src="images/plain X.png">');
-        $XImage.addClass('placedCharacters');
-        $(this).append($XImage);
+        const playerOneSymbol = playerImageGenerator();
+        $(this).append(playerOneSymbol);
 
-        gameBoard[id] = 'O';
+        // set gameBoard reference to occupied by playerOne.
+        gameBoard[id] = 'X';
         console.log(gameBoard); //    check = true
     
+        // switch player priority from playerOne to playerTwo.
         switchPriority();
-        console.log(playerTurn); //     check = true
-        
+        console.log(playerWithPriority); //     check = true
 
-    } else if (gameBoard[id] === false && playerTurn === 'playerTwo'  ) {
+    } else if (gameBoard[id] === false && playerWithPriority === 'playerTwo'  ) {
 
         // reset opacity of background color in all .playingSquare to 0. 
         $('.playingSquare').css("backgroundColor", "rgba(255, 0, 0, 0)")   
 
         // create newVariable of O image and then append to the current node.
-        const $OImage = $('<img src="images/plain O.png">');
-        $OImage.addClass('placedCharacters');
-        $(this).append($OImage);
+        const playerTwoSymbol = playerImageGenerator()
+        $(this).append(playerTwoSymbol);
 
+        // set gameBoard reference to occupied by playerTwo.
         gameBoard[id] = 'O';
         console.log(gameBoard); //    check = true
     
+        // switch player priority from playerTwo to playerOne.
         switchPriority();
-        console.log(playerTurn); //     check = true    
-
-
+        console.log(playerWithPriority); //     check = true    
 
     } else {
 
@@ -83,4 +166,6 @@ $('.playingSquare').on('click', function (  ) {
     } //        closes if/else  
 
 
-}); //      closes .onSquareClick
+}); //      closes .onSquareClick eventListener
+
+
