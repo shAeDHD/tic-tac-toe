@@ -166,3 +166,5 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
 });                                                     //       closes onSquareClick eventListener
 
 
+
+

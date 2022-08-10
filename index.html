@@ -9,7 +9,7 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-
+<div id="fullScreen">
     <div id="heading">
         <h1>Tic-Tac-Toe</h1>
     </div>
@@ -24,19 +24,19 @@
         <div class="playingSquare" id="c1"> </div>
         <div class="playingSquare" id="c2"> </div>
         <div class="playingSquare" id="c3"> </div>
-         
+        <div id="gameRules">
+            <h3> Game Rules </h3>
+            <p> On each turn, the player with priority will click one of the squares in the grid above. Once a square is clicked, priority passes to the next player. <br><br>A player wins when they have three of their symbols in a continous row, be that by horizontal, vertical, or diagonal means.  </p>
+        </div>
     </div>
 
-    <div id="gameRules">
-        <h3> Game Rules </h3>
-        <p> On each turn, the player with priority will click one of the squares in the grid above. Once a square is clicked, priority passes to the next player. A player wins when they have three of their symbols in a continous row, be that by horizontal, vertical, or diagonal means.  </p>
-    </div>
+
     
     <div id="XAndOImages">
         <img id="O" src="images/plain O.png" alt=" stylised black letter 'X' ">
         <img id="X" src="images/plain X.png" alt=" stylised black letter 'O' ">
     </div>
-
+</div>
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>

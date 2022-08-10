@@ -6,8 +6,8 @@ h1 {
 }
 
 #playingGrid {
-    height: 75vh;
-    width: 75vw;
+    height: 50vh;
+    width: 50vw;
     display:grid;
     margin: auto;
     text-align: center;
@@ -36,7 +36,19 @@ h1 {
 }
 
 #gameRules {
+    
+    border: 0.5rem ridge rgb(255, 215, 0);
+    border-radius: 0.5rem;
+    background: linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
+    filter:drop-shadow( 0px 0px 0.5rem black);
+
+    width: 40vw;
+    height: 13.5vh;
+    
+    position: absolute;
     text-align: center;
+    
+
 
 }
 
@@ -49,4 +61,15 @@ h1 {
 
 }
 
+#fullScreen {
 
+    position            : absolute          ;
+    height              : 103vh             ;
+    width               : 103vw             ;
+    background-color    : aquamarine      ;
+    z-index             : -1                ;
+    top                 : 0rem             ;
+    left                : 0rem             ;
+
+
+}
