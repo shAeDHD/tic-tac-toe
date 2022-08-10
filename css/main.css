@@ -11,18 +11,21 @@ h1 {
     display:grid;
     margin: auto;
     text-align: center;
-    grid-template-rows: repeat(3, 25%);
-    grid-template-columns: repeat(3, 25%);
-    gap: 1em 1em;
+    
+    grid-template-rows:     [row-1-start] 1fr [row-2-start] 1fr [row-3-start] 1fr [row-3-end];
+    grid-template-columns:  [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
+    gap: 1rem 1rem;
+    padding: 1rem;
+    
     border: 1px solid rgb(12, 108, 76);
     justify-content: center;
     align-content: center;
     background-color: lightblue;
 
+
 }
 
 .playingSquare {
-    
     border: 1px solid lightseagreen;
     background-color: rgba(255, 0, 0, 0);
     justify-content: center;
@@ -38,17 +41,27 @@ h1 {
 #gameRules {
     
     border: 0.5rem ridge rgb(255, 215, 0);
-    border-radius: 0.5rem;
     background: linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
     filter:drop-shadow( 0px 0px 0.5rem black);
+    padding: 1rem;
 
-    width: 40vw;
+    width: 38.5vw;
     height: 13.5vh;
+    min-height: 1rem;
     
-    position: absolute;
-    text-align: center;
-    
+    margin: auto;
+    margin-top: -1rem;
 
+
+    text-align: center;
+    text-overflow: ellipsis;
+    
+}
+h3{
+
+    padding: 0;
+    margin: 0;
+    text-overflow: ellipsis;
 
 }
 
@@ -66,10 +79,12 @@ h1 {
     position            : absolute          ;
     height              : 103vh             ;
     width               : 103vw             ;
-    background-color    : aquamarine      ;
+    background: linear-gradient( .3turn, rgba(134, 110, 62, 0.5) , rgba(37, 37, 174, 0.5) )    ;
     z-index             : -1                ;
     top                 : 0rem             ;
     left                : 0rem             ;
 
 
 }
+
+

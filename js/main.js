@@ -166,5 +166,35 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
 });                                                     //       closes onSquareClick eventListener
 
 
+let gameRules = true
+
+$('#rulesButton').on('click' , function(){
+    
+    if (gameRules === true){
+        $('#rulesText').hide()
+        $('#gameRules').animate({
+           
+            height : '0.5rem',
+            padding : '0',
+            
+            
+        }, 3000, function(){     
+        })
+        gameRules = false
+    } else {
+        gameRules = true
+        $('#gameRules').animate({
+           
+            height : '12.5rem',
+            padding: '1rem',
+            
+            
+            
+        }, 3000, function(){     
+        })
+        $('#rulesText').show()
+    }
+})
+
 
 
