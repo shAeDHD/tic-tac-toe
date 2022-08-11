@@ -390,8 +390,43 @@
 }
 
 
+/*-----------------------------------------------*/
+/*       .CSS CONTROLS FOR CONGRATS MES.         */
+/*-----------------------------------------------*/
+#congratsContainer{
+    display: grid;
+    position: relative;
 
+    grid-column-start   : col-2-start   ;
+    grid-column-end     : col-4-start   ;
+    grid-row-start      : row-2-start   ;
+    grid-row-end        : row-4-start   ;
 
+    z-index             : 1500          ;
+
+    border: 5px solid red ;
+    background-color: #9a0303;
+}
+#congratsMessage{
+
+}
+#congratsImages{
+    
+}
+
+#billWin{
+    /* display: none; */
+    position: relative;
+    display: inline;
+    height: 30vh;
+    width: auto;
+    bottom: 2.5vh;
+    left: 2.5vw;
+
+}
+#cageWin{
+    display: none;
+}
 
 
 
