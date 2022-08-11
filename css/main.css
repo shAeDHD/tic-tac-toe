@@ -28,8 +28,9 @@ h1 {
 .playingSquare {
     border: 1px solid lightseagreen;
     background-color: rgba(255, 0, 0, 0);
-    justify-content: center;
-    align-content: center;
+    /* justify-content: center;
+    align-content: center; */
+
 
 }
 
@@ -77,12 +78,17 @@ h3{
 #fullScreen {
 
     position            : absolute          ;
+    display             : grid              ;
+    grid-template-rows   :  [row-1-start] 1fr [row-2-start] 1fr [row-3-start] 1fr [row-3-end];
+    grid-template-columns:  [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
+    border: 1px solid red;
+
     height              : 103vh             ;
     width               : 103vw             ;
-    background: linear-gradient( .3turn, rgba(134, 110, 62, 0.5) , rgba(37, 37, 174, 0.5) )    ;
+    background: linear-gradient(.3turn, rgba(134, 110, 62, 0.5) , rgba(37, 37, 174, 0.5));
     z-index             : -1                ;
-    top                 : 0rem             ;
-    left                : 0rem             ;
+    top                 : 0rem              ;
+    left                : 0rem              ;
 
 
 }
