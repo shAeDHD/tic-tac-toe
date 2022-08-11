@@ -5,8 +5,10 @@
 
     position            : absolute          ;
     display             : grid              ;
-    grid-template-rows   :  [row-0-start] 8vh [row-1-start] 18vh [row-2-start] 18vh [row-3-start] 18vh [row-4-start] 18vh [row-5-start] 8vh [row-5-end];
-    grid-template-columns:  [col-1-start] 25vw [col-2-start] 25vw [col-3-start] 25vw [col-4-start] 25vw [col-4-end];
+    grid-template-rows   :  
+    [row-0-start] 8vh [row-1-start] 18vh [row-2-start] 18vh [row-3-start] 18vh [row-4-start] 18vh [row-5-start] 8vh [row-5-end];
+    grid-template-columns:  
+    [col-1-start] 25vw [col-2-start] 25vw [col-3-start] 25vw [col-4-start] 25vw [col-4-end];
     border: 1px solid red;
 
     height              : 100.5vh             ;
@@ -28,7 +30,7 @@
     grid-row-end: row-1-start;
     color: rgb(0, 0, 0);
     align-self: center;
-    z-index: 60;
+    z-index: 75;
     background:linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
     filter:drop-shadow( -.5vh .5vh 1vh black);
     margin: 1.5vh 0 0 0 ;
@@ -39,7 +41,23 @@
     bottom:-2vh;
     text-align: center;
     right: 10vw;
+    z-index: 100;
     
+}
+#titleOfOther{
+    display: none;
+    grid-column-start   : col-2-start ;
+    grid-column-end     : col-4-start ;
+    grid-row-start      : row-0-start ;
+    grid-row-end        : row-1-start ;
+    border: 0.5vw solid rgb(0, 0, 0);
+    z-index: 100;
+    position: relative;
+    top: 0  ;
+    height: 6vh;
+    background: linear-gradient(0.1turn, #9a0303,rgb(0, 0, 0), #0a7cb6);
+    z-index: 150;
+
 }
 /*-----------------------------------------------*/
 /*        .CSS CONTROLS FOR PLAY GRID            */
@@ -52,12 +70,14 @@
     z-index: 10;
 
     display:grid;
-    grid-template-rows:     [row-1-start] 1fr [row-2-start] 1fr [row-3-start] 1fr [row-3-end];
-    grid-template-columns:  [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
+    grid-template-rows:     
+    [row-1-start] 1fr [row-2-start] 1fr [row-3-start] 1fr [row-3-end];
+    grid-template-columns:  
+    [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
     gap: 1rem 1rem;
     padding: 1rem;
     
-    border: 1px solid rgb(12, 108, 76); 
+    border: 1vh ridge rgb(12, 108, 76); 
     justify-content: center; 
     align-content: center;
     background-color: lightblue;
@@ -136,18 +156,35 @@
 /*-----------------------------------------------*/
 #gameLog {
 
-    display: inline-block;
+
     position: absolute;
     
-    height: 105vh;
+    height: 100vh;
     width: 60vw;
     right: -3vw;
-    top: 0.5vh;
+    top: 0;
+
+    display: grid;
+
+
+
 
     z-index: 40 ;
     background:linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
     filter:drop-shadow( -0.5vh 0vh 1vh black);
 
+}
+#gameLogConcealer{
+    height: 105vh;
+    width: 50vw;
+
+    top: -10vh;
+    left: 3vw;
+    display: inline;
+    position: absolute;
+    z-index: 250;
+
+    background:linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99) ;
 }
 #gameLogEdge{
     display: block;
@@ -157,34 +194,201 @@
     top: -5vh;
     background-color: rgb(255, 196, 0);
     border: 0.5rem ridge rgb(255, 215, 0);
+    z-index: 50;
 }
 #logTitle{
     position: relative;
     text-align: left;
-    top: -2.1vh;
-    left:4vw
-}
-.characterOptions {
-    display: none;
+    top: -1.5vh;
+    left:4vw;
+    height: 2vh;
+    z-index: 900;
+
 
 }
+/*-----------------------------------------------*/
+/* #characterSelection{
+    display: none;
+} */
+/* .characterOptions {
+    display: none;
+
+} */
+/*---------- ^^^ FUTURE ADDITION ^^^ ------------*/
+#logArea{
+
+    display:grid;
+    gap: 0.1vh;
+    position:relative;
+    top:-2vh
+
+}
+
+.pOneLog{
+    display: inline-flex;
+    position: relative;
+    float: right;
+    width: 50vw;
+
+}
+.pTwoLog{
+    display: inline-flex;
+    flex-direction: row-reverse;
+    position: relative;
+    justify-content: left;
+    width: 50vw;
+    z-index: 50;
+}
+
+.pOneText{
+    flex:2;
+    border:.05vw ridge lightslategray;
+    text-align: right;
+    z-index: 40;
+    color: white;
+    position: relative;
+    right: 1.5vw;
+}
+.pTwoText{
+    flex:2;
+    border:.05vw ridge lightslategray; 
+    text-align: left;
+    position: relative;
+    left: 3vw;
+    z-index: 40;
+    color: white;
+}
+.pOneLogAvatar{
+    flex: 0.5;
+    position: relative;
+    left: 3vw;
+    height: 10vh ;
+    width: 10vw ;
+    z-index: 30 ;
+    border-radius: 20%;
+    
+
+}
+.pTwoLogAvatar{
+    flex: 0.5;
+    display: flex;
+    position: relative;
+    right: 1.5vw;
+    height: 10vh ;
+    width: 10vw ;
+    z-index: 30 ;
+    border-radius: 20%;
+
+}
+
+#turnOne{
+
+}
+#turnTwo{
+
+}
+#turnThree{
+
+}
+#turnFour{
+
+}
+#turnFive{
+
+}
+#turnSix{
+
+}
+#turnSeven{
+
+}
+#turnEight{
+
+}
+#turnNine{
+
+}
+
+
+
 /*-----------------------------------------------*/
 /*         .CSS CONTROLS FOR P.SCORES            */
 /*-----------------------------------------------*/
 #playerScores {
 
+    display: grid;
     position:absolute;
+    grid-template-rows   : 
+    [psr-1-start] 1fr [psr-2-start] 1fr [psr-3-starts] 1fr [psr-3-ends];
+    grid-template-columns: 
+    [psc-1-start] 1fr [psc-2-start] 1fr [psc-2-end];
+
     top: 1.7vh;
     grid-row-start: row-4-start;
     z-index: 30 ;
     height: 37vh;
     width: 50vw ;
 
-    background: lightcoral;
-    
-    
+    border: 1vh ridge rgb(12, 108, 76); 
+    background-color: lightblue;
 
 }
+.playerTitles{
+    padding: 2vh 0 0 0 ;
+    text-align: center;
+    font-weight: bold;
+    height: 3vh
+
+}
+.playerAvatars{
+    height: 15vh;
+    width:  15vw;
+    border: 1px ridge rgb(89, 205, 63);
+    border-radius: 20% ;
+    display: inline-block;
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    gap: 2vw;
+    bottom: 4vh;
+
+}
+#pOneScoreAvatar{
+    height: 15vh;
+    width: 15vw;
+    border-radius: 20%;
+}
+#pTwoScoreAvatar{
+    height: 15vh;
+    width: 15vw;
+    border-radius: 20%;
+}
+.scoreTally{
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    border: 2vh ridge rgb(255, 255, 255) ;
+    bottom: 3vh;
+    /* gap: 2vw; */
+    justify-self: center;
+    align-self: center;
+    width: 20vw ;
+    height: 10vh;
+}
+#pOne{
+    display:inline-block;
+    position: relative;
+    font-size: 5.5vh;
+    bottom: 2.5vh;
+}
+#pTwo{
+    display:inline-block;
+    position: relative;
+    font-size: 5.5vh;
+    bottom: 2.5vh
+    
+}
+
 
 
 

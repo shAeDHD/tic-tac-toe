@@ -17,6 +17,8 @@
         <img id="X" src="images/plain X.png" alt=" stylised black letter 'O' ">
     </div>
     <div id="heading"><h1 id="headingWords">Tic-Tac-Toe</h1></div>
+    <div id="titleBuffUp"></div>
+
     <div id="playingGrid">
         <div class="playingSquare" id="a1"> </div>
         <div class="playingSquare" id="a2"> </div>
@@ -27,7 +29,7 @@
         <div class="playingSquare" id="c1"> </div>
         <div class="playingSquare" id="c2"> </div>
         <div class="playingSquare" id="c3"> </div>
-    </div>
+    </div> <!-- closes playingGrid-->
 
     <div id="gameRules">
         <button id="rulesButton"><b>Click for:</b></button>
@@ -36,49 +38,97 @@
         When ready, select a Game Mode from the options below.</p>
         <button class="gameOption" id="original">Original.</button>
         <button class="gameOption" id="other">Other.</button>
-    </div>
+    </div> <!-- closes gameRules-->
 
     <div id="playerScores">
-        <div id="playerOne"><p>Player One</p></div>
-        <div id="playerTwo"><p>Player Two</p></div>
+        <div class="playerTitles"id="playerOneTitle"><p>Player One</p></div>
+        <div class="playerTitles"id="playerTwoTitle"><p>Player Two</p></div>
+        <div class="playerAvatars">
+            <img id="pOneScoreAvatar"src="https://www.fillmurray.com/400/500" alt="">
+        </div>
+        <div class="playerAvatars">
+            <img id="pTwoScoreAvatar" src="https://www.placecage.com/200/300" alt="">
+        </div>
+        <div class="scoreTally" id="playerOneScore"><p id="pOne">0</p></div>
+        <div class="scoreTally" id="playerTwoScore"><p id="pTwo">0</p></div>
     </div>
 
     <div id="gameLog">
         
         <div id="gameLogEdge"></div>
         <h2 id="logTitle">Game Log</h2>
-        <div id="characterSelection"></div>
-            
-        <div class="characterOptions" id="PlayerOneOptions" autocomplete="off">        
+
+        <!-- <div id="characterSelection"></div> FUTURE ADDITION -->
+<!----------------- FUTURE ADDITION : CHARACTER SELECTION ----------------->
+        <!-- <div class="characterOptions" id="PlayerOneOptions" autocomplete="off">        
             <label for="playerOne">Player One<br>Choose Your Character</label>
             <select name="playerOne" id="playerOneSelection">
                 <option value="" selected disabled>select a character</option>
                 <option value="darthVadar">Darth Vadar</option>
                 <option value="lukeSkywalker">Luke Skywalker</option>
             </select>
-        </div>    
-
-        <div class="characterOptions" id="playerTwoOptions" autocomplete="off">
+        </div>  closes pOne characterOptions    -->
+<!--------------^^^ FUTURE ADDITION : CHARACTER SELECTION ^^^-------------->
+        <!-- <div class="characterOptions" id="playerTwoOptions" autocomplete="off">
             <label for="playerTwo">Player Two<br>Choose Your Character</label>
             <select name="playerTwo" id="playerTwoSelection">
                 <option value="" selected disabled>select a character</option>
                 <option value="darthVadar">Darth Vadar</option>
                 <option value="lukeSkywalker">Luke Skywalker</option>
             </select>
-        </div>
-        
+        </div> closes pTwo characterOptions -->
+<!--------------^^^ FUTURE ADDITION : CHARACTER SELECTION ^^^-------------->
+
         <div id="logArea">
-            <div class="turnLog" id="turnOne"></div>
-            <div class="turnLog" id="turnTwo"></div>
-            <div class="turnLog" id="turnThree"></div>
-            <div class="turnLog" id="turnFour"></div>
-            <div class="turnLog" id="turnFive"></div>
-            <div class="turnLog" id="turnSix"></div>
-            <div class="turnLog" id="turnSeven"></div>
-            <div class="turnLog" id="turnEight"></div>
-            <div class="turnLog" id="turnNine"></div>
-        </div>
-    </div>
+            <div id="gameLogConcealer"></div>
+            <div class="pOneLog" id="turnOne">
+                <img src="https://www.fillmurray.com/400/500" alt="" class="pOneLogAvatar">
+                <p class="pOneText"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+            </div>
+
+            <div class="pTwoLog" id="turnTwo">
+                <img src="https://www.placecage.com/200/300" alt="" class="pTwoLogAvatar">
+                <p class="pTwoText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="pOneLog" id="turnThree">
+                <img src="https://www.fillmurray.com/400/500" alt="" class="pOneLogAvatar">
+                <p class="pOneText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="pTwoLog" id="turnFour">
+                <img src="https://www.placecage.com/200/300" alt="" class="pTwoLogAvatar">
+                <p class="pTwoText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="pOneLog" id="turnFive">
+                <img src="https://www.fillmurray.com/400/500" alt="" class="pOneLogAvatar">
+                <p class="pOneText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="pTwoLog" id="turnSix">
+                <img src="https://www.placecage.com/200/300" alt="" class="pTwoLogAvatar">
+                <p class="pTwoText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="pOneLog" id="turnSeven">
+                <img src="https://www.fillmurray.com/400/500" alt="" class="pOneLogAvatar">
+                <p class="pOneText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="pTwoLog" id="turnEight">
+                <img src="https://www.placecage.com/200/300" alt="" class="pTwoLogAvatar">
+                <p class="pTwoText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+
+            <div class="pOneLog" id="turnNine">
+                <img src="https://www.fillmurray.com/400/500" alt="" class="pOneLogAvatar">
+                <p class="pOneText">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        
+        </div> <!-- closes logArea -->
+
+    </div> <!-- closes gameLog -->
 
 
 

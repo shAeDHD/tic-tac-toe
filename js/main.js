@@ -195,7 +195,9 @@ $('#rulesButton').on('click' , function(){
 $('#original').on('click' , function(){
     
         $('#gameLog')
-        .animate({ width : '52.3vw'}, 3000 ) 
+        .animate({ width : '52.3vw', zIndex: '75'}, 3000 ) 
+
+        $('#gameLogConcealer').hide( 3000 )
         
         if ( gameRulesShowing ) {
             // initates .css changes to #gameRules        
