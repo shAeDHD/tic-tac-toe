@@ -10,10 +10,13 @@
 </head>
 <body>
 <div id="fullScreen">
-    <div id="heading">
-        <h1>Tic-Tac-Toe</h1>
-    </div>
 
+    
+    <div id="XAndOImages">
+        <img id="O" src="images/plain O.png" alt=" stylised black letter 'X' ">
+        <img id="X" src="images/plain X.png" alt=" stylised black letter 'O' ">
+    </div>
+    <div id="heading"><h1>Tic-Tac-Toe</h1></div>
     <div id="playingGrid">
         <div class="playingSquare" id="a1"> </div>
         <div class="playingSquare" id="a2"> </div>
@@ -24,19 +27,85 @@
         <div class="playingSquare" id="c1"> </div>
         <div class="playingSquare" id="c2"> </div>
         <div class="playingSquare" id="c3"> </div>
-
     </div>
 
     <div id="gameRules">
+        <button id="rulesButton"><b>Click for:</b></button>
         <h3> Game Rules </h3>
         <p id="rulesText"> On each turn, the player with priority will click one of the squares in the grid above. Once a square is clicked, priority passes to the next player. <br><br>A player wins when they have three of their symbols in a continous row, be that by horizontal, vertical, or diagonal means.  </p>
-        <button id="rulesButton"> Click Here. </button>
+        <p>When ready, select a Game Mode from the options below.</p>
+        <button class="gameOption" id="original">Original.</button>
+        <button class="gameOption" id="other">Other.</button>
     </div>
-    
-    <div id="XAndOImages">
-        <img id="O" src="images/plain O.png" alt=" stylised black letter 'X' ">
-        <img id="X" src="images/plain X.png" alt=" stylised black letter 'O' ">
+
+    <!-- <div id="playerScores">
+        <div id="playerOne"><p>Player One</p></div>
+        <div id="playerTwo"><p>Player Two</p></div>
+    </div> -->
+
+    <div id="gameLog">
+        <h2 id="logTitle">Game Log</h2>
+        <div id="characterSelection"></div>
+            
+        <div class="characterOptions" id="PlayerOneOptions" autocomplete="off">        
+            <label for="playerOne">Player One<br>Choose Your Character</label>
+            <select name="playerOne" id="playerOneSelection">
+                <option value="" selected disabled>select a character</option>
+                <option value="darthVadar">Darth Vadar</option>
+                <option value="lukeSkywalker">Luke Skywalker</option>
+            </select>
+        </div>    
+
+        <div class="characterOptions" id="playerTwoOptions" autocomplete="off">
+            <label for="playerTwo">Player Two<br>Choose Your Character</label>
+            <select name="playerTwo" id="playerTwoSelection">
+                <option value="" selected disabled>select a character</option>
+                <option value="darthVadar">Darth Vadar</option>
+                <option value="lukeSkywalker">Luke Skywalker</option>
+            </select>
+        </div>
+        
+        <div id="logArea">
+            <div class="turnLog" id="turnOne"></div>
+            <div class="turnLog" id="turnTwo"></div>
+            <div class="turnLog" id="turnThree"></div>
+            <div class="turnLog" id="turnFour"></div>
+            <div class="turnLog" id="turnFive"></div>
+            <div class="turnLog" id="turnSix"></div>
+            <div class="turnLog" id="turnSeven"></div>
+            <div class="turnLog" id="turnEight"></div>
+            <div class="turnLog" id="turnNine"></div>
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- GUIDE GRID LINES -->
+    <div class="fullGuideRow" id="row0"></div>
+    <div class="fullGuideRow" id="row1"></div>
+    <div class="fullGuideRow" id="row2"></div>    
+    <div class="fullGuideRow" id="row3"></div>    
+    <div class="fullGuideRow" id="row4"></div>
+    <div class="fullGuideRow" id="row5"></div>
+ 
+    <div class="fullGuideCol" id="col1"></div>
+    <div class="fullGuideCol" id="col2"></div>
+    <div class="fullGuideCol" id="col3"></div>
+    <div class="fullGuideCol" id="col4"></div>
+    <!-- GUIDE GRID LINES -->
 
 </div>
 

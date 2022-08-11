@@ -1,70 +1,113 @@
 
+#fullScreen {
 
-h1 {
+    position            : absolute          ;
+    display             : grid              ;
+    grid-template-rows   :  [row-0-start] 8vh [row-1-start] 18vh [row-2-start] 18vh [row-3-start] 18vh [row-4-start] 18vh [row-5-start] 8vh [row-5-end];
+    grid-template-columns:  [col-1-start] 25vw [col-2-start] 25vw [col-3-start] 25vw [col-4-start] 25vw [col-4-end];
+    border: 1px solid red;
+
+    height              : 100.5vh             ;
+    width               : 100.5vw             ;
+    background: linear-gradient(.3turn, rgba(134, 110, 62, 0.5) , rgba(37, 37, 174, 0.5));
+    z-index             : -1                ;
+    top                 : -0.1rem              ;
+    left                : -0.1rem              ;
+
+
+}
+
+#heading{
+    grid-column-start: col-1-start ;
+    grid-column-end: col-3-end;
+    grid-row-start: row-0-start;
+    grid-row-end: row-1-start;
     color: rgb(12, 108, 76);
+    align-self: center;
     text-align: center;
+    z-index: 60;
+    background-color: rgb(113, 166, 213);
 }
 
 #playingGrid {
-    height: 50vh;
-    width: 50vw;
+    grid-column-start: col-1-start;
+    grid-column-end: col-3-start;
+    grid-row-start: row-1-start;
+    grid-row-end: row-4-start;
+    z-index: 10;
+
     display:grid;
-    margin: auto;
-    text-align: center;
-    
     grid-template-rows:     [row-1-start] 1fr [row-2-start] 1fr [row-3-start] 1fr [row-3-end];
     grid-template-columns:  [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
     gap: 1rem 1rem;
     padding: 1rem;
     
-    border: 1px solid rgb(12, 108, 76);
-    justify-content: center;
+    border: 1px solid rgb(12, 108, 76); 
+    justify-content: center; 
     align-content: center;
     background-color: lightblue;
 
 
 }
-
 .playingSquare {
-    border: 1px solid lightseagreen;
+    border: 1px solid rgb(178, 32, 32) !important;
     background-color: rgba(255, 0, 0, 0);
-    /* justify-content: center;
-    align-content: center; */
+    justify-content: center;
+    align-content: center; 
+    z-index: 20;
 
+
+} 
+#XAndOImages{
+    display: none;
+
+} 
+
+/*-----------------------------------------------*/
+/*       management of Game Rules Area           */
+/*-----------------------------------------------*/
+#gameRules {
+    
+    grid-row-start  : row-4-start   ;
+    grid-row-end    : row-5-end     ;
+    height: 25vh;
+
+
+    border: 0.5rem ridge rgb(255, 215, 0);
+    background: linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
+    filter:drop-shadow( 0px 0px 0.5rem black);
+
+    z-index: 50;
+    text-align: center;
+    position: absolute;
+    overflow: auto;
 
 }
+h3{
+    height: 1.5vh;
+    margin: 0.125vh;
+    display: inline-block;
+}
+#rulesButton{
+    position:absolute;
+    height: 1.5vh;
+    margin: 0.25vh;
+    left: 0px;
+}
+.gameOption{
+    display: inline-block;
+    position: relative;
+    margin: 8vh 20vw 0 20vw;
+}
+/*-----------------------------------------------*/
 
-#XAndOImages{
+
+
+.characterOptions {
     display: none;
 
 }
 
-#gameRules {
-    
-    border: 0.5rem ridge rgb(255, 215, 0);
-    background: linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
-    filter:drop-shadow( 0px 0px 0.5rem black);
-    padding: 1rem;
-
-    width: 38.5vw;
-    height: 13.5vh;
-    min-height: 1rem;
-    
-    margin: auto;
-    margin-top: -1rem;
-
-
-    text-align: center;
-    text-overflow: ellipsis;
-    
-}
-h3{
-
-    padding: 0;
-    margin: 0;
-    text-overflow: ellipsis;
-
-}
 
 .placedCharacters{
     display: inline;
@@ -75,22 +118,106 @@ h3{
 
 }
 
-#fullScreen {
+#gameLog {
+    grid-row-start: row-0-start;
+    grid-row-end: row-4-start;
+    display: inline-block;
+    position: absolute;
+    
+    width: 70vw;
+    right: 1vw;
 
-    position            : absolute          ;
-    display             : grid              ;
-    grid-template-rows   :  [row-1-start] 1fr [row-2-start] 1fr [row-3-start] 1fr [row-3-end];
-    grid-template-columns:  [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
-    border: 1px solid red;
-
-    height              : 103vh             ;
-    width               : 103vw             ;
-    background: linear-gradient(.3turn, rgba(134, 110, 62, 0.5) , rgba(37, 37, 174, 0.5));
-    z-index             : -1                ;
-    top                 : 0rem              ;
-    left                : 0rem              ;
-
+    border: 2px dotted purple;
+    z-index: 40 ;
+    background-color: rgb(85, 119, 119);
 
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------------------*/
+/*          GRID GUIDELINE RULES BELOW           */
+/*---------------------------------------------- */
+/*      TO TURN ON/OFF GRID, CHANGE BORDERS      */
+/*  FROM [1PX - 0PX] OR [0PX - 1PX] AS DESIRED   */
+.fullGuideRow {
+    border: 1px solid orange /* change px value */
+}
+.fullGuideCol {
+    border: 1px dashed green /* change px value */
+}
+/*-----------------------------------------------*/
+/*          DO NOT CHANGE FROM HERE ON           */
+/*-----------------------------------------------*/
+#row0 {
+    grid-row-start: row-0-start;
+    grid-row-end: row-1-start;
+    grid-column-start: col-1-start;
+    grid-column-end: col-4-end;  
+}
+#row1 {
+    grid-row-start: row-1-start; 
+    grid-row-end:  row-2-start;
+    grid-column-start:col-1-start;
+    grid-column-end: col-4-end;;
+}
+#row2 {
+    grid-row-start: row-2-start; 
+    grid-row-end: row-3-start;
+    grid-column-start:col-1-start;
+    grid-column-end: col-4-end;;
+}
+#row3 {
+    grid-row-start: row-3-start; 
+    grid-row-end: row-4-start;
+    grid-column-start:col-1-start;
+    grid-column-end: col-4-end;;
+}
+#row4 {
+    grid-row-start: row-4-start; 
+    grid-row-end: row-5-start;
+    grid-column-start:col-1-start;
+    grid-column-end: col-4-end;;
+}
+#row5 {
+    grid-row-start: row-5-start; 
+    grid-row-end: row-5-end;
+    grid-column-start:col-1-start;
+    grid-column-end: col-4-end;
+}
+#col1{
+    grid-row-start: row-0-start; 
+    grid-row-end: row-5-end;
+    grid-column-start: col-1-start;
+    grid-column-end: col-2-start;
+}
+#col2{
+    grid-row-start: row-0-start; 
+    grid-row-end: row-5-end;
+    grid-column-start: col-2-start;
+    grid-column-end: col-3-start;
+}
+#col3{
+    grid-row-start: row-0-start; 
+    grid-row-end: row-5-end;
+    grid-column-start: col-3-start;
+    grid-column-end: col-4-start;
+}
+#col4{
+    grid-row-start: row-0-start; 
+    grid-row-end: row-5-end;
+    grid-column-start:col-4-start;
+    grid-column-end: col-4-end;
+}
+/*-----------------------------------------------*/
+/*       DO NOT CHANGE ABOVE TIL 112/115         */
+/*-----------------------------------------------*/

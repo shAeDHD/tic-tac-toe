@@ -166,34 +166,37 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
 });                                                     //       closes onSquareClick eventListener
 
 
-let gameRules = true
-
+let gameRulesShowing = true
+// eventListener to 'Open or Close' gameRules
 $('#rulesButton').on('click' , function(){
-    
-    if (gameRules === true){
-        $('#rulesText').hide()
+    // check to see if gameRules are showing
+    if ( gameRulesShowing ) {
+        // initates .css changes to #gameRules        
         $('#gameRules').animate({
-           
-            height : '0.5rem',
-            padding : '0',
-            
-            
-        }, 3000, function(){     
+            height : '2vh',
+        }, 3000, function(){
         })
-        gameRules = false
+        // switches gameRulesShowing value
+        gameRulesShowing = false
     } else {
-        gameRules = true
+        // initates .css changes to #gameRules
         $('#gameRules').animate({
-           
-            height : '12.5rem',
-            padding: '1rem',
-            
-            
-            
-        }, 3000, function(){     
+           height : '25vh',
+        },3000, function(){
         })
-        $('#rulesText').show()
+        // switches gameRulesShowing value
+        gameRulesShowing = true
     }
+})
+
+// eventListener to select Game Mode
+$('.gameOption').on('click' , function(){
+
+    if ( $(this) === $('#original') ) {
+        
+
+    }
+
 })
 
 
