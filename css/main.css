@@ -1,4 +1,6 @@
-
+/*-----------------------------------------------*/
+/*        fullScreen === CONTROL GRID            */
+/*-----------------------------------------------*/
 #fullScreen {
 
     position            : absolute          ;
@@ -16,19 +18,32 @@
 
 
 }
-
+/*-----------------------------------------------*/
+/*        .CSS CONTROLS FOR TITLE AREA           */
+/*-----------------------------------------------*/
 #heading{
     grid-column-start: col-1-start ;
     grid-column-end: col-3-end;
     grid-row-start: row-0-start;
     grid-row-end: row-1-start;
-    color: rgb(12, 108, 76);
+    color: rgb(0, 0, 0);
     align-self: center;
-    text-align: center;
     z-index: 60;
-    background-color: rgb(113, 166, 213);
+    background:linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
+    filter:drop-shadow( -.5vh .5vh 1vh black);
+    margin: 1.5vh 0 0 0 ;
+    border: 0.5rem ridge rgb(255, 215, 0)
 }
-
+#headingWords {
+    position: relative;
+    bottom:-2vh;
+    text-align: center;
+    right: 10vw;
+    
+}
+/*-----------------------------------------------*/
+/*        .CSS CONTROLS FOR PLAY GRID            */
+/*-----------------------------------------------*/
 #playingGrid {
     grid-column-start: col-1-start;
     grid-column-end: col-3-start;
@@ -62,53 +77,6 @@
     display: none;
 
 } 
-
-/*-----------------------------------------------*/
-/*       management of Game Rules Area           */
-/*-----------------------------------------------*/
-#gameRules {
-    
-    grid-row-start  : row-4-start   ;
-    grid-row-end    : row-5-end     ;
-    height: 25vh;
-
-
-    border: 0.5rem ridge rgb(255, 215, 0);
-    background: linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
-    filter:drop-shadow( 0px 0px 0.5rem black);
-
-    z-index: 50;
-    text-align: center;
-    position: absolute;
-    overflow: auto;
-
-}
-h3{
-    height: 1.5vh;
-    margin: 0.125vh;
-    display: inline-block;
-}
-#rulesButton{
-    position:absolute;
-    height: 1.5vh;
-    margin: 0.25vh;
-    left: 0px;
-}
-.gameOption{
-    display: inline-block;
-    position: relative;
-    margin: 8vh 20vw 0 20vw;
-}
-/*-----------------------------------------------*/
-
-
-
-.characterOptions {
-    display: none;
-
-}
-
-
 .placedCharacters{
     display: inline;
     height: 90%;
@@ -117,24 +85,106 @@ h3{
     top: 5%;
 
 }
+/*-----------------------------------------------*/
+/*        .CSS CONTROLS FOR GAME RULES           */
+/*-----------------------------------------------*/
+#gameRules {
+    
+    grid-row-start  : row-4-start   ;
+    grid-row-end    : row-5-end     ;
+    height: 36vh;
 
+
+    border: 0.5rem ridge rgb(255, 215, 0);
+    background: linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
+    filter:drop-shadow( -0.5vh -.5vh 1vh black);
+
+    z-index: 50;
+    text-align: center;
+    position: absolute;
+    overflow: auto;
+    top: 0;
+    
+
+
+}
+#gameRulesHeading{
+    height: 1.5vh;
+    margin: 0.125vh;
+    display: inline-block;
+    position: relative;
+    right: 4vh;
+}
+#rulesButton{
+    position:absolute;
+    height: 3vh;
+    margin: 0.25vh;
+    left: 0px;
+}
+.gameOption{
+    display: inline-block;
+    position: relative;
+    margin: 8vh 20vw 0 20vw;
+}
+#rulesText {
+    position: relative;
+    left: 0vw;
+    text-align: center;
+}
+/*-----------------------------------------------*/
+/*         .CSS CONTROLS FOR GAME LOG            */
+/*-----------------------------------------------*/
 #gameLog {
-    grid-row-start: row-0-start;
-    grid-row-end: row-4-start;
+
     display: inline-block;
     position: absolute;
     
-    width: 70vw;
-    right: 1vw;
+    height: 105vh;
+    width: 60vw;
+    right: -3vw;
+    top: 0.5vh;
 
-    border: 2px dotted purple;
     z-index: 40 ;
-    background-color: rgb(85, 119, 119);
+    background:linear-gradient(0.05turn, #81888e,rgb(236, 220, 158), #c1ae99);
+    filter:drop-shadow( -0.5vh 0vh 1vh black);
 
 }
+#gameLogEdge{
+    display: block;
+    position: absolute;
+    height: 105vh;
+    width: 1.5vw;
+    top: -5vh;
+    background-color: rgb(255, 196, 0);
+    border: 0.5rem ridge rgb(255, 215, 0);
+}
+#logTitle{
+    position: relative;
+    text-align: left;
+    top: -2.1vh;
+    left:4vw
+}
+.characterOptions {
+    display: none;
 
+}
+/*-----------------------------------------------*/
+/*         .CSS CONTROLS FOR P.SCORES            */
+/*-----------------------------------------------*/
+#playerScores {
 
+    position:absolute;
+    top: 1.7vh;
+    grid-row-start: row-4-start;
+    z-index: 30 ;
+    height: 37vh;
+    width: 50vw ;
 
+    background: lightcoral;
+    
+    
+
+}
 
 
 
@@ -148,12 +198,12 @@ h3{
 /*          GRID GUIDELINE RULES BELOW           */
 /*---------------------------------------------- */
 /*      TO TURN ON/OFF GRID, CHANGE BORDERS      */
-/*  FROM [1PX - 0PX] OR [0PX - 1PX] AS DESIRED   */
+/*  FROM [1PX - 0PX] OR [0PX - 1PX] AS REQUIRED  */
 .fullGuideRow {
-    border: 1px solid orange /* change px value */
+    border: 0px solid orange /* change px value */
 }
 .fullGuideCol {
-    border: 1px dashed green /* change px value */
+    border: 0px dashed green /* change px value */
 }
 /*-----------------------------------------------*/
 /*          DO NOT CHANGE FROM HERE ON           */

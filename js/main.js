@@ -174,10 +174,76 @@ $('#rulesButton').on('click' , function(){
         // initates .css changes to #gameRules        
         $('#gameRules').animate({
             height : '2vh',
+            top: '1vh'
         }, 3000, function(){
         })
         // switches gameRulesShowing value
         gameRulesShowing = false
+    } else {
+        // initates .css changes to #gameRules
+        $('#gameRules').animate({
+           height : '25vh',
+ 
+        },3000, function(){
+        })
+        // switches gameRulesShowing value
+        gameRulesShowing = true
+    }
+})
+
+// eventListener to select Game Mode
+$('#original').on('click' , function(){
+    
+        $('#gameLog')
+        .animate({ width : '52.3vw'}, 3000 ) 
+        
+        if ( gameRulesShowing ) {
+            // initates .css changes to #gameRules        
+            $('#gameRules')
+            .animate({ height : '2.5vh', top: '1.3vh'}, 3000 )
+            $('#heading')
+            .animate({ margin: '0 0 6.5vh 0' }, 3000 )
+            
+            // switches gameRulesShowing value
+            gameRulesShowing = false
+        } else {
+            // initates .css changes to #gameRules
+            $('#gameRules').animate({
+               height : '25vh',
+               top: '1vh'
+            },3000, function(){
+            })
+            // switches gameRulesShowing value
+            gameRulesShowing = true
+        }        
+});
+
+$('#other').on('click', function (){
+    $('#gameLog').css('zIndex' , 75 )
+
+    $('#gameLog')
+      .animate( { width : '110vw' }, 200 )
+      .animate( { width : '43vw' }, 500 )
+      .animate( { width : '52.3vw' }, 2000);
+
+
+    if ( gameRulesShowing ) {
+        // initates .css changes to #gameRules        
+        $('#gameRules')
+        .animate({ height : '28vh' , top: '-2vh'}, 200)
+        .animate({ height : '1vh'  , top: '5vh'}, 500)
+        .animate({ height : '2.5vh', top: '1.3vh'}, 2000);
+
+        $('#heading')
+        .animate({ margin: '2.5vh 0 0 0' }, 200)
+        .animate({ margin: '0 0 8vh 0'   }, 500)
+        .animate({ margin: '0 0 7vh 0'   }, 2000);
+        
+        $('#rulesText').css('textAlign' , 'left')
+        
+        // switches gameRulesShowing value
+        gameRulesShowing = false
+
     } else {
         // initates .css changes to #gameRules
         $('#gameRules').animate({
@@ -187,17 +253,9 @@ $('#rulesButton').on('click' , function(){
         // switches gameRulesShowing value
         gameRulesShowing = true
     }
-})
+    
+    // $('#gameLog').css('zIndex' , 75 )
 
-// eventListener to select Game Mode
-$('.gameOption').on('click' , function(){
+    
 
-    if ( $(this) === $('#original') ) {
-        
-
-    }
-
-})
-
-
-
+});

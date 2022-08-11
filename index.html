@@ -16,7 +16,7 @@
         <img id="O" src="images/plain O.png" alt=" stylised black letter 'X' ">
         <img id="X" src="images/plain X.png" alt=" stylised black letter 'O' ">
     </div>
-    <div id="heading"><h1>Tic-Tac-Toe</h1></div>
+    <div id="heading"><h1 id="headingWords">Tic-Tac-Toe</h1></div>
     <div id="playingGrid">
         <div class="playingSquare" id="a1"> </div>
         <div class="playingSquare" id="a2"> </div>
@@ -31,19 +31,21 @@
 
     <div id="gameRules">
         <button id="rulesButton"><b>Click for:</b></button>
-        <h3> Game Rules </h3>
-        <p id="rulesText"> On each turn, the player with priority will click one of the squares in the grid above. Once a square is clicked, priority passes to the next player. <br><br>A player wins when they have three of their symbols in a continous row, be that by horizontal, vertical, or diagonal means.  </p>
-        <p>When ready, select a Game Mode from the options below.</p>
+        <h3 id="gameRulesHeading"> Game Rules </h3>
+        <p id="rulesText"> On each turn, the player with priority will click one of the squares in the grid above.<br> Once a square is clicked, priority passes to the next player. <br><br>A player wins when they have three of their symbols in<br> a continous row, be that by horizontal, vertical, or diagonal means. <br><br>  
+        When ready, select a Game Mode from the options below.</p>
         <button class="gameOption" id="original">Original.</button>
         <button class="gameOption" id="other">Other.</button>
     </div>
 
-    <!-- <div id="playerScores">
+    <div id="playerScores">
         <div id="playerOne"><p>Player One</p></div>
         <div id="playerTwo"><p>Player Two</p></div>
-    </div> -->
+    </div>
 
     <div id="gameLog">
+        
+        <div id="gameLogEdge"></div>
         <h2 id="logTitle">Game Log</h2>
         <div id="characterSelection"></div>
             
