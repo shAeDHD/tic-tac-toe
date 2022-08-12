@@ -1,3 +1,6 @@
+body{
+    font-family: 'Gilda Display', serif ;
+}
 /*-----------------------------------------------*/
 /*        fullScreen === CONTROL GRID            */
 /*-----------------------------------------------*/
@@ -20,6 +23,7 @@
 
 
 }
+
 /*-----------------------------------------------*/
 /*        .CSS CONTROLS FOR TITLE AREA           */
 /*-----------------------------------------------*/
@@ -59,6 +63,7 @@
     z-index: 150;
 
 }
+
 /*-----------------------------------------------*/
 /*        .CSS CONTROLS FOR PLAY GRID            */
 /*-----------------------------------------------*/
@@ -85,8 +90,10 @@
 
 }
 .playingSquare {
-    border: 1px solid rgb(178, 32, 32) !important;
-    background-color: rgba(255, 0, 0, 0);
+    border: .5vh ridge rgb(42, 40, 38) ;
+    filter: drop-shadow(0px 0px 0.5px #000000);
+    background-color: #81888e;
+    border-radius: 25%;
     justify-content: center;
     align-content: center; 
     z-index: 20;
@@ -154,6 +161,7 @@
     left: 0vw;
     text-align: center;
 }
+
 /*-----------------------------------------------*/
 /*         .CSS CONTROLS FOR GAME LOG            */
 /*-----------------------------------------------*/
@@ -209,6 +217,7 @@
 
 
 }
+
 /*-----------------------------------------------*/
 /* #characterSelection{
     display: none;
@@ -245,21 +254,25 @@
 
 .pOneText{
     flex:2;
-    border:.05vw ridge lightslategray;
+    border:.5vw ridge lightslategray;
+    border-radius: 5%;
     text-align: right;
-    z-index: 40;
+    z-index: 39;
     color: white;
     position: relative;
     right: 1.5vw;
+    background: linear-gradient(0.2turn, #ffffff,rgb(0, 0, 0), #81888e) ;
+
 }
 .pTwoText{
     flex:2;
-    border:.05vw ridge lightslategray; 
+    border:.5vw ridge lightslategray; 
     text-align: left;
     position: relative;
     left: 3vw;
     z-index: 40;
     color: white;
+    background: linear-gradient(0.18turn, #81888e,rgb(0, 0, 0), #ffffff) ;
 }
 .pOneLogAvatar{
     flex: 0.5;
@@ -267,7 +280,7 @@
     left: 3vw;
     height: 10vh ;
     width: 10vw ;
-    z-index: 30 ;
+    z-index: 40 ;
     border-radius: 20%;
     
 
@@ -279,7 +292,7 @@
     right: 1.5vw;
     height: 10vh ;
     width: 10vw ;
-    z-index: 30 ;
+    z-index: 41 ;
     border-radius: 20%;
 
 }
@@ -338,21 +351,24 @@
     padding: 2vh 0 0 0 ;
     text-align: center;
     font-weight: bold;
-    height: 3vh
+    height: 3vh;
+    z-index: 50;
+    color: white;
+    filter: drop-shadow(1px 1px 0.5px #000000);
 
 }
 .playerAvatars{
     height: 15vh;
     width:  15vw;
-    border: 1px ridge rgb(89, 205, 63);
-    border-radius: 20% ;
+    border: 5px ridge rgb(47, 46, 42);
+    border-radius: 25% ;
     display: inline-block;
     position: relative;
     align-self: center;
     justify-self: center;
     gap: 2vw;
     bottom: 4vh;
-
+    filter: drop-shadow(0px 0px 3px #000000);
 }
 #pOneScoreAvatar{
     height: 15vh;
@@ -368,9 +384,11 @@
     display: inline-block;
     text-align: center;
     position: relative;
-    border: 2vh ridge rgb(255, 255, 255) ;
+    border: 2vh ridge rgb(42, 40, 38) ;
+    filter: drop-shadow(0px 0px 0.5px #000000);
+    background-color: #81888e;
+    border-radius: 10%;
     bottom: 3vh;
-    /* gap: 2vw; */
     justify-self: center;
     align-self: center;
     width: 20vw ;
@@ -386,10 +404,9 @@
     display:inline-block;
     position: relative;
     font-size: 5.5vh;
-    bottom: 2.5vh
+    bottom: 2.5vh;
     
 }
-
 
 /*-----------------------------------------------*/
 /*       .CSS CONTROLS FOR CONGRATS MES.         */

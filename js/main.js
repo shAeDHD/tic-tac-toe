@@ -159,7 +159,7 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
 
     if ( gameBoard[id] === false && playerWithPriority === 'playerOne' ) {
 
-        let pOneTextLog = `On turn ${turnCounter}, Bill, played into square ${id}`;
+        let pOneTextLog = `On turn ${turnCounter}, Bill, played into square ${id}...`;
 
         $currentGameLogTurnAsNode.find('p').html(pOneTextLog)
         $currentGameLogTurnAsNode.css('zIndex','251').show()
@@ -185,7 +185,7 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
 
     } else if (gameBoard[id] === false && playerWithPriority === 'playerTwo'  ) {
 
-        let pTwoTextLog = `On turn ${turnCounter}, Mr. Cage, played into square ${id}`;
+        let pTwoTextLog = `On turn ${turnCounter}, Mr. Cage, played into square ${id}...`;
 
         $currentGameLogTurnAsNode.find('p').html(pTwoTextLog)
         $currentGameLogTurnAsNode.css('zIndex','251').show()
