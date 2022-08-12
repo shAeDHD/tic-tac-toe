@@ -99,12 +99,15 @@
 } 
 .placedCharacters{
     display: inline;
-    height: 90%;
-    width: 90%;
+    height: 60%;
+    width: 60%;
     position: relative;
-    top: 5%;
+    left: 3vw;
+
+    top: 2.75vw;
 
 }
+
 /*-----------------------------------------------*/
 /*        .CSS CONTROLS FOR GAME RULES           */
 /*-----------------------------------------------*/
@@ -176,7 +179,7 @@
 }
 #gameLogConcealer{
     height: 105vh;
-    width: 50vw;
+    width: 55vw;
 
     top: -10vh;
     left: 3vw;
@@ -282,34 +285,32 @@
 }
 
 #turnOne{
-
+    z-index: 249 
 }
 #turnTwo{
-
+    z-index: 249 
 }
 #turnThree{
-
+    z-index: 249 
 }
 #turnFour{
-
+    z-index: 249 
 }
 #turnFive{
-
+    z-index: 249 
 }
 #turnSix{
-
+    z-index: 249 
 }
 #turnSeven{
-
+    z-index: 249 
 }
 #turnEight{
-
+    z-index: 249 
 }
 #turnNine{
-
+    z-index: 249 
 }
-
-
 
 /*-----------------------------------------------*/
 /*         .CSS CONTROLS FOR P.SCORES            */
@@ -394,7 +395,7 @@
 /*       .CSS CONTROLS FOR CONGRATS MES.         */
 /*-----------------------------------------------*/
 #congratsContainer{
-    display: grid;
+    display: none;
     position: relative;
 
     grid-column-start   : col-2-start   ;
@@ -407,31 +408,102 @@
     border: 5px solid red ;
     background-color: #9a0303;
 }
-#congratsMessage{
-
-}
-#congratsImages{
-    
-}
-
-#billWin{
-    /* display: none; */
+.congratsMessage{
+    display: grid;
     position: relative;
-    display: inline;
+    z-index: 1499;
+    bottom: 10vh;
+    right: 2vh;
+
+    grid-column-start   : col-3-start   ;
+    grid-column-end     : col-4-start   ;
+    grid-row-start      : row-2-start   ;
+    grid-row-end        : row-4-start   ;
+}
+
+#billWinImg{
+    display: none;
+    position: relative;
     height: 30vh;
     width: auto;
     bottom: 2.5vh;
     left: 2.5vw;
 
 }
-#cageWin{
+#billWinMes{
     display: none;
+    position: absolute;
+    text-align: right;
+    font-size: 15pt;
+    color: white;
+    top:25vh;
+    filter: drop-shadow(-2px -2px 0.5px #000000);
+
+    
+}
+#cageWinImg{
+    display: none;
+    position: absolute;
+    height: 30vh;
+    width: auto;
+    bottom: 2.5vh;
+    left: 2.5vw;
+    align-self: start ;
+}
+#cageWinMes{
+    display: none;
+    position: absolute;
+    text-align: right;
+    font-size: 15pt;
+    color: white;
+    top:25vh;
+    filter: drop-shadow(-2px -2px 0.5px #000000);
+
 }
 
+#drawBillImgBox{
+    display: none;
+    grid-column-start: col-2-start;
+    grid-column-end: col-3-start;
+    grid-row-start: row-2-start;
+    grid-row-end: row-4-start;
+    
+}
+#drawCageImgBox{
+    display: none;
+    grid-column-start: col-3-start;
+    grid-column-end: col-4-start;
+    grid-row-start: row-2-start;
+    grid-row-end: row-4-start;
+}
+#billDrawImg{
+    display: inline-block;
+    position: relative;
+    right:-5vw;
+    height: 30.5vh;
+    width: 38vw;
+    z-index: 1248;
+    /* object-fit: cover; */
+}
+#cageDrawImg{
+    display: inline-block;
+    position: relative;
+    left:-4vw;
+    height: 30.5vh;
+    width: 27vw ;
+    z-index: 1249;
+    /* object-fit:cover; */
+}
 
-
-
-
+#drawMes{
+    display: none;
+    text-align: center;
+    position: relative;
+    left: -3vw;
+    margin: 0;
+    padding: 0.5vh 0 0 0;
+    color: white;
+}
 
 /*-----------------------------------------------*/
 /*          GRID GUIDELINE RULES BELOW           */

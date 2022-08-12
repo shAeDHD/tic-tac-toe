@@ -2,6 +2,7 @@ console.log('main.js connected')
 //              globalVariables
 let playerWithPriority = 'playerOne';
 let gameWinner = null;
+let turnCounter = 0;
 
 //  function to alternate between players on square click.
 const switchPriority = function ( ) {                   //              swithPriority 
@@ -47,6 +48,7 @@ const winCondition = [                                  //              winCondi
 
 //  function to checks if player with priority has won.
 const checkWin = function (  ) {                        //              checkWin
+    // debugger
     //      loop through winCondition array    
     for (let i = 0 ; i < winCondition.length ; i++ ) {
         //      store value of current loop iteration in new variable. 
@@ -63,6 +65,26 @@ const checkWin = function (  ) {                        //              checkWin
 
             //      if a win condition is met, player with priority has won the game. 
             gameWinner = playerWithPriority
+            $('#congratsContainer').fadeIn(1000, function(){});
+                console.log('congratsBox');
+
+            if ( gameWinner === 'playerOne' ){
+
+                $('#billWinImg').fadeIn(1000, function(){});
+                console.log('BillImgIn');
+        
+                $('#billWinMes').fadeIn(1000, function(){});
+                console.log('BillMesIn');
+        
+        
+            } else {
+        
+                $('#cageWinImg').fadeIn(1000, function(){});
+                console.log('CageImgIn');
+        
+                $('#cageWinMes').fadeIn(1000, function(){});
+                console.log('CageMesIn');
+            }
 
         //      loop through individual arrays within winCondition array
         
@@ -73,9 +95,14 @@ const checkWin = function (  ) {                        //              checkWin
         //     // console.log(gameBoard[winConditionSquare]);
 
         // };                                              //       closes for loop2
-        } else if ( gameWinner === null && Object.values(gameBoard) !== false ) {
+        } else if ( gameWinner === null && turnCounter === 9 ) {
 
             gameWinner = 'Tied Game!'
+
+            $('#congratsContainer').fadeIn(1000, function(){});
+            $('#cageDrawImg').fadeIn(1000, function(){});
+            $('#billDrawImg').fadeIn(1000, function(){});
+            $('#drawMes').fadeIn(1000, function(){});
             
         } else {
 
@@ -120,26 +147,50 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
 
     // create new variable to house the #id of 'this'(*clicked*) playingSquare.
     const id = $(this).attr('id');
+    // console.log(id); //       check = true
+
+
+    // create new variable to house the node of current Turn Log
+    const $turnIdAsArray             = $('.pLogTurn') ;
+    // console.log($turnIdAsArray); //       check = true
+    const $currentGameLogTurnAsNode    = $turnIdAsArray.eq(turnCounter) ;
+    // console.log($currentGameLogTurnAsNode); //       check = true
+
 
     if ( gameBoard[id] === false && playerWithPriority === 'playerOne' ) {
-        
+
+        let pOneTextLog = `On turn ${turnCounter}, Bill, played into square ${id}`;
+
+        $currentGameLogTurnAsNode.find('p').html(pOneTextLog)
+        $currentGameLogTurnAsNode.css('zIndex','251').show()
+        console.log('loaded');
+
         // reset opacity of background color in all .playingSquare to 0. 
         $('.playingSquare').css("backgroundColor", "rgba(255, 0, 0, 0)")   
 
         // create newVariable of X image and then append to the current node.
         const playerOneSymbol = playerImageGenerator();
         $(this).append(playerOneSymbol);
-
+        
         // set gameBoard reference to occupied by playerOne.
         gameBoard[id] = 'X';
         console.log(gameBoard); //    check = true
-    
+        
+        // gameLogTextForCurrentTurn()
+
         // checks for win condition - if no winner, switch player priority from playerOne to playerTwo.
         checkWin();
         console.log(playerWithPriority); //     check = true
+        turnCounter++ ;
 
     } else if (gameBoard[id] === false && playerWithPriority === 'playerTwo'  ) {
 
+        let pTwoTextLog = `On turn ${turnCounter}, Mr. Cage, played into square ${id}`;
+
+        $currentGameLogTurnAsNode.find('p').html(pTwoTextLog)
+        $currentGameLogTurnAsNode.css('zIndex','251').show()
+        console.log('loaded');
+        
         // reset opacity of background color in all .playingSquare to 0. 
         $('.playingSquare').css("backgroundColor", "rgba(255, 0, 0, 0)")   
 
@@ -154,6 +205,7 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
         // checks for win condition - if no winner, switch player priority from playerTwo to playerOne.
         checkWin();
         console.log(playerWithPriority); //     check = true    
+        turnCounter++ ;
 
     } else {
 
@@ -164,7 +216,6 @@ $('.playingSquare').on('click', function ( ) {          //              onSquare
 
 
 });                                                     //       closes onSquareClick eventListener
-
 
 let gameRulesShowing = true
 // eventListener to 'Open or Close' gameRules
@@ -196,8 +247,6 @@ $('#original').on('click' , function(){
     
         $('#gameLog')
         .animate({ width : '52.3vw', zIndex: '75'}, 3000 ) 
-
-        $('#gameLogConcealer').hide( 3000 )
         
         if ( gameRulesShowing ) {
             // initates .css changes to #gameRules        
@@ -261,3 +310,6 @@ $('#other').on('click', function (){
     
 
 });
+
+
+
