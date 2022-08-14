@@ -1,4 +1,6 @@
 console.log('main.js connected')
+
+
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////|globalVariables|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -6,6 +8,7 @@ let playerWithPriority = 'playerOne';
 let gameWinner = null;
 let turnCounter = 0;
 let gameRulesShowing = true
+
 
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////|dataStructures|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -37,6 +40,7 @@ const winCondition = [                                  //              winCondi
 
 ];                                                      //       closes winCondition
 
+
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 ////////////////////////////////////////|functions|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -44,6 +48,7 @@ const winCondition = [                                  //              winCondi
 //  function to checks if player with priority has won.
 const checkWin = function (  ) {                        //              checkWin
     // debugger
+
     //      loop through winCondition array    
     for (let i = 0 ; i < winCondition.length ; i++ ) {
         //      store value of current loop iteration in new variable. 
@@ -80,14 +85,6 @@ const checkWin = function (  ) {                        //              checkWin
                 $('#cageWinMes').fadeIn(1000, function(){});
                 console.log('CageMesIn');
             }
-
-        //      loop through individual arrays within winCondition array
-        
-        // for (let i = 0 ; i < 3 ; i++ ) {                //              for loop2
-
-        //     const winConditionSquare = winConditionTriplet[i]
-            
-        //     // console.log(gameBoard[winConditionSquare]);
 
         // };                                              //       closes for loop2
         } else if ( gameWinner === null && turnCounter === 9 ) {
@@ -169,7 +166,9 @@ $('.playingSquare').on('click', function ( ) {          //
 
     // if/else conditionals to determine if playerOne or playerTwo
     if ( gameBoard[id] === false && playerWithPriority === 'playerOne' ) {
-
+ 
+        // adds 1 to turnCounter 
+        turnCounter++ ;
         // text generated for gameLog 
         let pOneTextLog = `On turn ${turnCounter}, Bill, played into square ${id}...`;
 
@@ -189,14 +188,15 @@ $('.playingSquare').on('click', function ( ) {          //
         // console.log(gameBoard); //    check = true
         
         // checkWin function: if no winner, switch player priority
+        
         checkWin();
-        // console.log(playerWithPriority); //     check = true
-        // adds 1 to turnCounter
-        turnCounter++ ;
-
+        // console.log(playerWithPriority); //     check = true        
         
     } else if ( gameBoard[id] === false && playerWithPriority=== 'playerTwo' ) {
-
+        
+        // add 1 to turnCounter     
+        turnCounter++ ;
+        
         // text generated for gameLog 
         let pTwoTextLog = `On turn ${turnCounter}, Mr. Cage, played into square ${id}...`;
 
@@ -218,8 +218,6 @@ $('.playingSquare').on('click', function ( ) {          //
         // checkWin function: if no winner, switch player priority
         checkWin();
         // console.log(playerWithPriority); //     check = true  
-        // add 1 to turnCounter  
-        turnCounter++ ;
 
     } else {
 

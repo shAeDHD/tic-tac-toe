@@ -120,9 +120,15 @@ body{
 /*-----------------------------------------------*/
 #gameRules {
     
+    /* grid-column-start: col-1-start  ;
+    grid-column-end:    col-4-end   ;
+    width: 110vw     ; */
+
     grid-row-start  : row-4-start   ;
     grid-row-end    : row-5-end     ;
     height: 36vh;
+
+    position: relative;
 
 
     border: 0.5rem ridge rgb(255, 215, 0);
@@ -272,7 +278,7 @@ body{
     left: 3vw;
     z-index: 40;
     color: white;
-    background: linear-gradient(0.18turn, #81888e,rgb(0, 0, 0), #ffffff) ;
+    background: linear-gradient(0.2turn, #81888e,rgb(0, 0, 0), #ffffff) ;
 }
 .pOneLogAvatar{
     flex: 0.5;
@@ -367,7 +373,7 @@ body{
     align-self: center;
     justify-self: center;
     gap: 2vw;
-    bottom: 4vh;
+    bottom: 3.25vh;
     filter: drop-shadow(0px 0px 3px #000000);
 }
 #pOneScoreAvatar{
@@ -388,11 +394,13 @@ body{
     filter: drop-shadow(0px 0px 0.5px #000000);
     background-color: #81888e;
     border-radius: 10%;
-    bottom: 3vh;
+    bottom: 2.5vh;
     justify-self: center;
     align-self: center;
     width: 20vw ;
     height: 10vh;
+    padding: 0 0 1.5vh 0;
+    margin: 0 0 0 0;
 }
 #pOne{
     display:inline-block;
