@@ -1,20 +1,17 @@
-console.log('main.js connected')
-
+console.log('main.js connected')                        //      check for main.js conncted to .HTML = true
 
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////|globalVariables|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-let playerWithPriority = 'playerOne';
-let gameWinner = null;
-let turnCounter = 0;
-let gameRulesShowing = true
-
+let playerWithPriority = 'playerOne';                   //       variable value: string: of current player turn
+let gameWinner = null;                                  //       variable value: string: of game winner
+let turnCounter = 0;                                    //       vairable value: integer: of turn in game
+let gameRulesShowing = true                             //       variable value: boolean: of rules visibility  
 
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////|dataStructures|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-//  object containing grid references for game board. 
-const gameBoard = {                                     //              gameBoard
+const gameBoard = {                                     //              object with grid references of game board. 
     a1  : false,  
     a2  : false,
     a3  : false,
@@ -24,10 +21,9 @@ const gameBoard = {                                     //              gameBoar
     c1  : false,
     c2  : false,
     c3  : false,
-};                                                      //       closes gameBoard
+};                                                      //       closes object with grid references of game board. 
 
-//  array housing arrays containing win specifications.
-const winCondition = [                                  //              winCondition
+const winCondition = [                                  //              nested arrays housing win specifications
 
     [ 'a1' , 'a2' , 'a3' ],
     [ 'b1' , 'b2' , 'b3' ],
@@ -38,15 +34,12 @@ const winCondition = [                                  //              winCondi
     [ 'a1' , 'b2' , 'c3' ],
     [ 'a3' , 'b2' , 'c1' ],
 
-];                                                      //       closes winCondition
-
+];                                                      //       closes nested arrays housing win specifications
 
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 ////////////////////////////////////////|functions|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-//  function to checks if player with priority has won.
-const checkWin = function (  ) {                        //              checkWin
+const checkWin = function (  ) {                        //              checkWin function
     // debugger
 
     //      loop through winCondition array    
@@ -103,10 +96,9 @@ const checkWin = function (  ) {                        //              checkWin
     //      switch player priority.
     switchPriority();
 
-};                                                      //       closes checkWin
+};                                                      //       closes checkWin function
 
-// creates player's symbol/image to place into square.
-const playerImageGenerator = function ( ) {             //              playerImageGenerator
+const playerImageGenerator = function ( ) {             //              playerImageGenerator function
 
     if ( playerWithPriority === 'playerOne' ) {
     
@@ -131,10 +123,9 @@ const playerImageGenerator = function ( ) {             //              playerIm
     
     
 
-};                                                      //       closes playerImageGenerator
+};                                                      //       closes playerImageGenerator function
 
-//  function to alternate between players.
-const switchPriority = function ( ) {                   //              swithPriority 
+const switchPriority = function ( ) {                   //              swithPriority function 
 
     if ( playerWithPriority === 'playerTwo' ) {
 
@@ -146,16 +137,12 @@ const switchPriority = function ( ) {                   //              swithPri
     }    
 
 
-};                                                      //       closes swithPriority
-
+};                                                      //       closes swithPriority function
 
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //////////////////////////////////////|eventListeners|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 /////////////////////////////////////////////|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-// eventListener that activates when a grid square is clicked.
-$('.playingSquare').on('click', function ( ) {          //              
+$('.playingSquare').on('click', function ( ) {          //              eventListener onSquareClick
 
     // create new variable to house the #id of 'this'(*clicked*) playingSquare.
     const id = $(this).attr('id');
@@ -227,10 +214,9 @@ $('.playingSquare').on('click', function ( ) {          //
     } //        closes if/else  
 
 
-});                                                     //       closes onSquareClick eventListener
+});                                                     //       closes eventListener onSquareClick
 
-// eventListener to 'Open or Close' gameRules
-$('#rulesButton').on('click' , function(){
+$('#rulesButton').on('click' , function(){              //              eventListener for gameRules
     
     // check to see if gameRules are showing
     if ( gameRulesShowing ) {
@@ -259,10 +245,9 @@ $('#rulesButton').on('click' , function(){
 
     } //    closes if/else tree   
 
-}) //       closes eventListener for gameRules button
+})                                                      //       closes eventListener for gameRules
 
-// eventListener to select Game Mode: ORIGINAL
-$('#original').on('click' , function(){
+$('#original').on('click' , function(){                 //              eventListener for Game Mode: ORIGINAL
     
     // bring gameLog to front
     $('#gameLog')
@@ -293,10 +278,10 @@ $('#original').on('click' , function(){
         gameRulesShowing = true
 
     }//     closes if/else tree       
-}); //      closes eventListener-GameMode:ORIGINAL
+});                                                     //       closes eventListener for Game Mode: ORIGINAL
 
-// eventListener to select Game Mode: OTHER
-$('#other').on('click', function (){
+$('#other').on('click', function (){                    //              eventListener for Game Mode: OTHER
+
     // bring gameLog to front
     $('#gameLog').css('zIndex' , 75 )
 
@@ -338,7 +323,4 @@ $('#other').on('click', function (){
 
     
 
-}); //      closes eventListener-GameMode:OTHER
-
-
-
+});                                                     //       closes eventListener for Game Mode: OTHER
