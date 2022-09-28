@@ -19,7 +19,7 @@ I think, if I was to particiapte in this project again, I would have taken more 
 
 To finish the project, I would have liked to add the 'other' version of the game: a version of Tic-Tac-Toe skinned to look like the trench run scene in Star Wars: A New Hope. Specifically 'X' being player One as Luke Skywalker and 'O' being player Two as Darth Vadar. Each having different game-log dialogue lines from the film (Vadar, "I have you now", etc.), and their X and O symbols replaced with an outline stencil of the X-Wing and Advanced-Tie-Fighter, respectively, targeting systems - then when a win is achieved, these three outlines are animated to align over each other in the center square of 3, achieving a fully formed taget of the opponent's spaceship.
 
-
+ LINK TO DEPLOYMENT: https://shaedhd.github.io/tic-tac-toe/
 
 
 
